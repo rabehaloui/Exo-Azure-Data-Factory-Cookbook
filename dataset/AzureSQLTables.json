@@ -5,6 +5,12 @@
 			"referenceName": "AzureSqlDatabase1",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"tableName": {
+				"type": "string",
+				"defaultValue": "Country"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -19,7 +25,11 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "Country"
+			"table": {
+				"value": "@dataset().tableName",
+				"type": "Expression"
+			}
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }
