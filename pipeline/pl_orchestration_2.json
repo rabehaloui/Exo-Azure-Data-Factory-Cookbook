@@ -25,6 +25,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -51,6 +52,23 @@
 					"secureInput": false
 				},
 				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertFileMetadata]",
+					"storedProcedureParameters": {
+						"FileName": {
+							"value": "@activity('CsvDataFolder Metadata').output.itemName",
+							"type": "String"
+						},
+						"ModifiedAt": {
+							"value": "@convertFromUtc(activity('CsvDataFolderMetadata').output.lastModified, 'Romance Standard Time')",
+							"type": "Datetime"
+						},
+						"UpdatedAt": {
+							"value": "UpdatedAt: @convertFromUtc(utcnow(), Romance Standard Time')",
+							"type": "Datetime"
+						}
+					}
+				},
 				"linkedServiceName": {
 					"referenceName": "AzureSqlDatabase1",
 					"type": "LinkedServiceReference"
