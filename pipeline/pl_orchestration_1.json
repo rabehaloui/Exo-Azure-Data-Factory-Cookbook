@@ -87,7 +87,25 @@
 						}
 					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureSQLTables",
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "Country"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CsvData",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "country.csv"
+						}
+					}
+				]
 			}
 		],
 		"annotations": [],
