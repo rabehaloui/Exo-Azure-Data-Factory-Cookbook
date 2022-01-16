@@ -70,7 +70,10 @@
 							"type": "Datetime"
 						},
 						"UpdatedAt": {
-							"value": null,
+							"value": {
+								"value": "@utcnow()",
+								"type": "Expression"
+							},
 							"type": "Datetime"
 						}
 					}
