@@ -37,7 +37,22 @@
 						"type": "AzureSqlSink"
 					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "CsvData",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSQLTables",
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "Country"
+						}
+					}
+				]
 			},
 			{
 				"name": "BackupCopy",
