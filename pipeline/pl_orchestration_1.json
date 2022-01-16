@@ -41,7 +41,10 @@
 				"inputs": [
 					{
 						"referenceName": "CsvData",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "Country"
+						}
 					}
 				],
 				"outputs": [
