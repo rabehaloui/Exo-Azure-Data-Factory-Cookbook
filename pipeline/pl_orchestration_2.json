@@ -70,10 +70,7 @@
 							"type": "Datetime"
 						},
 						"UpdatedAt": {
-							"value": {
-								"value": " @convertFromUtc(utcnow(),'Romance Standard Time')",
-								"type": "Expression"
-							},
+							"value": null,
 							"type": "Datetime"
 						}
 					}
