@@ -56,15 +56,21 @@
 					"storedProcedureName": "[dbo].[InsertFileMetadata]",
 					"storedProcedureParameters": {
 						"FileName": {
-							"value": "@activity('CsvDataFolder Metadata').output.itemName",
+							"value": {
+								"value": "@activity('CsvDataFolderMetadata').output.itemName",
+								"type": "Expression"
+							},
 							"type": "String"
 						},
 						"ModifiedAt": {
-							"value": "@convertFromUtc(activity('CsvDataFolderMetadata').output.lastModified, 'Romance Standard Time')",
+							"value": {
+								"value": "@convertFromUtc(activity('CsvDataFolderMetadata').output.lastModified, 'Romance Standard Time')",
+								"type": "Expression"
+							},
 							"type": "Datetime"
 						},
 						"UpdatedAt": {
-							"value": "UpdatedAt: @convertFromUtc(utcnow(), Romance Standard Time')",
+							"value": "@convertFromUtc(utcnow(), Romance Standard Time')",
 							"type": "Datetime"
 						}
 					}
