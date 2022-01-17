@@ -319,7 +319,7 @@
 								"parameters": {}
 							},
 							"fieldList": [
-								"itemName",
+								"childItems",
 								"lastModified"
 							],
 							"storeSettings": {
