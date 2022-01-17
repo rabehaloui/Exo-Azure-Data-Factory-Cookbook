@@ -16,11 +16,8 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "CsvData",
-						"type": "DatasetReference",
-						"parameters": {
-							"filename": "country.csv"
-						}
+						"referenceName": "CsvDataFolder",
+						"type": "DatasetReference"
 					},
 					"fieldList": [
 						"itemName",
