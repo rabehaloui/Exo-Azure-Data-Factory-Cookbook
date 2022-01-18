@@ -151,6 +151,51 @@
 					"referenceName": "AzureSqlDatabase1",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "OnFailure",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [
+					{
+						"activity": "CopyFromBlobToSQL",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertPipelineLog]",
+					"storedProcedureParameters": {
+						"PipelineID": {
+							"value": "@pipeline().Pipeline",
+							"type": "String"
+						},
+						"RunID": {
+							"value": "@pipeline().RunId",
+							"type": "String"
+						},
+						"Status": {
+							"value": "Failure",
+							"type": "String"
+						},
+						"UpdatedAt": {
+							"value": "@utcnow()",
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": [],
