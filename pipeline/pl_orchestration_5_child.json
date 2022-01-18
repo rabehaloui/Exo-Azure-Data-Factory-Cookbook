@@ -1,6 +1,37 @@
 {
 	"name": "pl_orchestration_5_child",
 	"properties": {
+		"activities": [
+			{
+				"name": "GetEmailRecipients",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "SELECT * FROM EmailRecipients",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSQLTables",
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "EmailRecipients"
+						}
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
 		"annotations": []
 	}
 }
