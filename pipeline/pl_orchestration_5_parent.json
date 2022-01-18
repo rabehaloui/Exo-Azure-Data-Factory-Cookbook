@@ -162,8 +162,8 @@
 				}
 			},
 			{
-				"name": "OnFailure",
-				"type": "SqlServerStoredProcedure",
+				"name": "SendEmailOnFailure",
+				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
 						"activity": "CopyFromBlobToSQL",
@@ -172,47 +172,13 @@
 						]
 					}
 				],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
 				"userProperties": [],
 				"typeProperties": {
-					"storedProcedureName": "[dbo].[InsertPipelineLog]",
-					"storedProcedureParameters": {
-						"PipelineID": {
-							"value": {
-								"value": "@pipeline().Pipeline",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"RunID": {
-							"value": {
-								"value": "@pipeline().RunId",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"Status": {
-							"value": "Failure",
-							"type": "String"
-						},
-						"UpdatedAt": {
-							"value": {
-								"value": "@utcnow()",
-								"type": "Expression"
-							},
-							"type": "Datetime"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureSqlDatabase1",
-					"type": "LinkedServiceReference"
+					"pipeline": {
+						"referenceName": "pl_orchestration_5_child",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
 				}
 			}
 		],
