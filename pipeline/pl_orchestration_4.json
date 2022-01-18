@@ -52,7 +52,7 @@
 						"referenceName": "AzureSQLTables",
 						"type": "DatasetReference",
 						"parameters": {
-							"tableName": "Country"
+							"tableName": "sdd"
 						}
 					}
 				]
