@@ -37,7 +37,25 @@
 						"type": "AzureSqlSink"
 					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "CsvData",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "countries.csv"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSQLTables",
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "Country"
+						}
+					}
+				]
 			},
 			{
 				"name": "BackupCopy",
@@ -69,7 +87,25 @@
 						}
 					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureSQLTables",
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "Country"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CsvData",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "@concat('Country-', utcnow(),'.backup' )"
+						}
+					}
+				]
 			}
 		],
 		"annotations": [],
