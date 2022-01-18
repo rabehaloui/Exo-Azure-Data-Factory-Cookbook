@@ -55,7 +55,12 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"url": "https://prod-30.francecentral.logic.azure.com:443/workflows/5af2afed12ed409391725a8725829e32/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=32yPJNc7mkhKjnA1C2zqR8YQX0eRue6fGDK7WF28O2k"
+								"url": "https://prod-30.francecentral.logic.azure.com:443/workflows/5af2afed12ed409391725a8725829e32/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=32yPJNc7mkhKjnA1C2zqR8YQX0eRue6fGDK7WF28O2k",
+								"method": "POST",
+								"headers": {
+									"Content-Type": "application/json"
+								},
+								"body": "@json(concat('{\"emailAddress\": \"', item().emailAddress,\n'\", \"subject\": \"ADF Pipeline Failure\", \"messageBody\":\n\"ADF Pipeline Failed\"}'))"
 							}
 						}
 					]
