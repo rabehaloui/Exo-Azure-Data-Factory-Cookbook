@@ -110,7 +110,14 @@
 			{
 				"name": "OnSuccess",
 				"type": "SqlServerStoredProcedure",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "CopyFromBlobToSQL",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
@@ -118,7 +125,32 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[InsertPipelineLog]",
+					"storedProcedureParameters": {
+						"PipelineID": {
+							"value": "@pipeline().Pipeline",
+							"type": "String"
+						},
+						"RunID": {
+							"value": "@pipeline().RunId",
+							"type": "String"
+						},
+						"Status": {
+							"value": "Success",
+							"type": "String"
+						},
+						"UpdatedAt": {
+							"value": "@utcnow()",
+							"type": "Datetime"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureSqlDatabase1",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": [],
