@@ -1,5 +1,5 @@
 {
-	"name": "pl_orchestration_1",
+	"name": "pl_orchestration_7",
 	"properties": {
 		"activities": [
 			{
@@ -43,7 +43,11 @@
 						"referenceName": "CsvData",
 						"type": "DatasetReference",
 						"parameters": {
+<<<<<<< HEAD:pipeline/pl_orchestration_1.json
 							"filename": "airlines.csv"
+=======
+							"filename": "countries.csv"
+>>>>>>> 4b086ee9260d1b4ce1b594290c92464b1ed2c6dc:pipeline/pl_orchestration_7.json
 						}
 					}
 				],
@@ -52,7 +56,11 @@
 						"referenceName": "AzureSQLTables",
 						"type": "DatasetReference",
 						"parameters": {
+<<<<<<< HEAD:pipeline/pl_orchestration_1.json
 							"tableName": "Airline"
+=======
+							"tableName": "Country"
+>>>>>>> 4b086ee9260d1b4ce1b594290c92464b1ed2c6dc:pipeline/pl_orchestration_7.json
 						}
 					}
 				]
@@ -93,7 +101,11 @@
 						"referenceName": "AzureSQLTables",
 						"type": "DatasetReference",
 						"parameters": {
+<<<<<<< HEAD:pipeline/pl_orchestration_1.json
 							"tableName": "Airline"
+=======
+							"tableName": "Country"
+>>>>>>> 4b086ee9260d1b4ce1b594290c92464b1ed2c6dc:pipeline/pl_orchestration_7.json
 						}
 					}
 				],
@@ -102,10 +114,14 @@
 						"referenceName": "CsvData",
 						"type": "DatasetReference",
 						"parameters": {
+<<<<<<< HEAD:pipeline/pl_orchestration_1.json
 							"filename": {
 								"value": "@concat('Airlines-', utcnow(),'.backup')",
 								"type": "Expression"
 							}
+=======
+							"filename": "@concat('Country-', utcnow(),'.backup' )"
+>>>>>>> 4b086ee9260d1b4ce1b594290c92464b1ed2c6dc:pipeline/pl_orchestration_7.json
 						}
 					}
 				]
