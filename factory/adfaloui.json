@@ -1,0 +1,9 @@
+{
+	"name": "adfaloui",
+	"location": "francecentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a72e6c49-8885-48fa-805a-028c56dbdb01",
+		"tenantId": "00d2f132-45c7-4fbf-9723-b4e2455d2a3e"
+	}
+}
