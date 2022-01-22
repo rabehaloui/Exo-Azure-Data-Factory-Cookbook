@@ -33,9 +33,6 @@
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"sink": {
-						"type": "AzureSqlSink"
-					},
 					"enableStaging": false
 				}
 			},
@@ -69,7 +66,25 @@
 						}
 					},
 					"enableStaging": false
-				}
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureSQLTables",
+						"type": "DatasetReference",
+						"parameters": {
+							"tableName": "Country"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "CsvData",
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": "@concat('Country-', utcnow(),'.backup' )"
+						}
+					}
+				]
 			}
 		],
 		"annotations": [],
